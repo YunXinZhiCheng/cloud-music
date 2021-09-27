@@ -70,9 +70,10 @@
   font-size: 24rpx;
 }
 
-/* 内容区 */
+/* 内容区 srcoll-view*/
 .recommendContainer .recommendScroll {
-  display: flex
+  display: flex;
+  height: 300rpx;
 }
 
 /* 内容区 子项 */
@@ -105,4 +106,9 @@
   /* 设置对齐模式 */
   -webkit-line-clamp: 2;
   /* 设置多行的行数 */
+}
+
+/* 排行榜区域 */
+.topList {
+  padding: 20rpx;
 }

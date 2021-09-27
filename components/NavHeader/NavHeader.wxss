@@ -1,0 +1,24 @@
+/* components/NavHeader/NavHeader.wxss */
+
+/* 顶部 */
+.header {
+  padding-bottom: 20rpx;
+
+}
+
+/* 顶部区 标题 */
+.header .title {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+
+/* 顶部区 查看更多 */
+.header .more {
+  /* 右浮动 */
+  float: right;
+  border: 1rpx solid #333;
+  border-radius: 30rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+}

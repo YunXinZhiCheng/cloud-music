@@ -40,16 +40,8 @@
 
   <!-- 推荐歌曲区域 -->
   <view class="recommendContainer">
-    <!-- 顶部区 -->
-    <view class="header">
-      <!-- 标题 -->
-      <text class="title">推荐歌曲</text>
-      <!-- 左侧+右侧 -->
-      <view>
-        <text>热门推荐</text>
-        <text class="more">查看更多</text>
-      </view>
-    </view>
+    <!-- 顶部区-使用组件 -->
+    <NavHeader title="推荐歌曲" nav="每日推荐"></NavHeader>
 
     <!-- 内容区: 弹性布局 enable-flex + 左右滚动 srcoll-x  -->
     <scroll-view class="recommendScroll" enable-flex scroll-x>
@@ -59,6 +51,13 @@
         <text>{{item.name}}</text>
       </view>
     </scroll-view>
+  </view>
+
+  <!-- 排行榜区域 -->
+  <view class="topList">
+    <!-- 顶部区-使用组件 -->
+    <NavHeader title="排行榜" nav="热歌风向标"> </NavHeader>
+    <!-- 内容区 -->
 
   </view>
 </view>
