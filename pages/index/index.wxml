@@ -1,4 +1,15 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 轮播图区域 -->
+  <swiper class="banners" indicator-dots indicator-color="ivory" indicator-active-color="#d43c33">
+    <swiper-item>
+      <image src="/static/images/swiper.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/swiper.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/swiper.jpg"></image>
+    </swiper-item>
+  </swiper>
 </view>
