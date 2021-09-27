@@ -8,32 +8,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bannerList: [] // 轮播图数据
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // 没有封装的请求方式
-    // wx.request({
-    //   url:'https://lyccode.vercel.app/',
-    //   data:{type:2},
-    //   // 请求成功
-    //   success: res => {
-    //     console.log('请求成功：', res);
-    //   },
-    //   // 请求失败
-    //   fail: err => {
-    //     console.log('请求失败：', err);
-    //   }
-    // })
-
-    // 封装好的请求方式
-    let result = await request('/banner', {
+    // 网络请求
+    let bannerListData = await request('/banner', {
       type: 2
     })
-    console.log('结果数据:', result);
+    this.setData({
+      bannerList: bannerListData.banners
+    })
   },
 
   /**

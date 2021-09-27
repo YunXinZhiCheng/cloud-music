@@ -1,15 +1,11 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- 轮播图区域 -->
+  <!-- 轮播图区域
+       列表渲染：wx:for wx:key
+   -->
   <swiper class="banners" indicator-dots indicator-color="ivory" indicator-active-color="#d43c33">
-    <swiper-item>
-      <image src="/static/images/swiper.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/swiper.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/swiper.jpg"></image>
+    <swiper-item wx:for="{{bannerList}}" wx:key="bannerId">
+      <image src="{{item.pic}}"></image>
     </swiper-item>
   </swiper>
 
