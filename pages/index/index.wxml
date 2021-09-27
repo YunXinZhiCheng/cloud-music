@@ -12,4 +12,33 @@
       <image src="/static/images/swiper.jpg"></image>
     </swiper-item>
   </swiper>
+
+  <!-- 图标导航区域 -->
+  <view class="navContainer">
+    <!-- 每日推荐 -->
+    <view class="navItem">
+      <text class="iconfont icon-meirituijian"></text>
+      <text>歌单</text>
+    </view>
+    <!-- 歌单 -->
+    <view class="navItem">
+      <text class="iconfont icon-gedan"></text>
+      <text>每日推荐</text>
+    </view>
+    <!-- 排行榜 -->
+    <view class="navItem">
+      <text class="iconfont icon-icon-ranking"></text>
+      <text>排行榜</text>
+    </view>
+    <!-- 电台 -->
+    <view class="navItem">
+      <text class="iconfont icon-diantai"></text>
+      <text>电台</text>
+    </view>
+    <!-- 直播 -->
+    <view class="navItem">
+      <text class="iconfont icon-zhiboguankanliangbofangsheyingshexiangjixianxing"></text>
+      <text>直播</text>
+    </view>
+  </view>
 </view>

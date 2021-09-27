@@ -1,5 +1,5 @@
 /**index.wxss**/
-/* 轮播图 */
+/* 轮播图区域 */
 .banners {
   width: 100%;
   height: 300rpx;
@@ -9,4 +9,35 @@
 .banners image {
   width: 100%;
   height: 100%;
+}
+
+/* 导航栏区域 */
+.navContainer {
+  display: flex;
+}
+
+/* 导航栏子项 */
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+/* 字体图标 */
+.navItem .iconfont {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: rgb(240, 19, 19);
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 50rpx;
+  color: #fff;
+  margin: 20rpx 0;
+
+}
+
+.navItem text {
+  font-size: 26rpx;
 }

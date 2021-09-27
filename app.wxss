@@ -1,1 +1,4 @@
 /**app.wxss**/
+
+/* 全局引入字体图标 */
+@import '/static/iconfont/iconfont.wxss'
