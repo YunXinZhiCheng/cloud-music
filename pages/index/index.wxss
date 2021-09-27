@@ -41,3 +41,68 @@
 .navItem text {
   font-size: 26rpx;
 }
+
+/* 推荐歌曲区域 */
+.recommendContainer {
+  padding: 20rpx;
+}
+
+/* 顶部 */
+.recommendContainer .header {
+  padding-bottom: 20rpx;
+
+}
+
+/* 顶部区 标题 */
+.recommendContainer .header .title {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+
+/* 顶部区 查看更多 */
+.recommendContainer .header .more {
+  /* 右浮动 */
+  float: right;
+  border: 1rpx solid #333;
+  border-radius: 30rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+}
+
+/* 内容区 */
+.recommendContainer .recommendScroll {
+  display: flex
+}
+
+/* 内容区 子项 */
+.scrollItem {
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+
+/* 内容区 图片 */
+.scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+
+/* 内容区 文本 */
+.scrollItem text {
+  font-size: 26rpx;
+  /* 单行文本: 转换块元素+不换行+溢出隐藏+省略号代替 */
+  /* display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+
+  /* 多行文本: 溢出隐藏+省略号代替 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 设置对齐模式 */
+  -webkit-line-clamp: 2;
+  /* 设置多行的行数 */
+}
