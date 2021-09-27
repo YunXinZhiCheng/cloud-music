@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- 轮播图区域
+  <!-- 轮播图区域 
        列表渲染：wx:for wx:key
    -->
   <swiper class="banners" indicator-dots indicator-color="ivory" indicator-active-color="#d43c33">
@@ -46,7 +46,7 @@
       <text class="title">推荐歌曲</text>
       <!-- 左侧+右侧 -->
       <view>
-        <text>精心推荐</text>
+        <text>热门推荐</text>
         <text class="more">查看更多</text>
       </view>
     </view>
@@ -54,34 +54,9 @@
     <!-- 内容区: 弹性布局 enable-flex + 左右滚动 srcoll-x  -->
     <scroll-view class="recommendScroll" enable-flex scroll-x>
       <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息歌曲信息歌曲信息歌曲信息</text>
-      </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息</text>
-      </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息</text>
-      </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息</text>
-      </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息</text>
-      </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <image src="/static/images/swiper.jpg"></image>
-        <text>歌曲信息</text>
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id">
+        <image src="{{item.picUrl}}"></image>
+        <text>{{item.name}}</text>
       </view>
     </scroll-view>
 

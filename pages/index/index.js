@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerList: [] // 轮播图数据
+    bannerList: [], // 轮播图数据
+    recommendList: [], // 推荐歌单数据
   },
 
   /**
@@ -16,12 +17,25 @@ Page({
    */
   onLoad: async function (options) {
     // 网络请求
+    // 1.获取轮播图数据
     let bannerListData = await request('/banner', {
       type: 2
     })
+    // console.log(bannerListData);
     this.setData({
       bannerList: bannerListData.banners
     })
+
+    // 2.获取推荐歌单数据
+    let recommendListData = await request('/personalized', {
+      limit: 10
+    })
+    // console.log(recommendListData)
+    this.setData({
+      recommendList: recommendListData.result
+    })
+
+
   },
 
   /**
