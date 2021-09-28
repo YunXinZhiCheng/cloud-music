@@ -1,4 +1,8 @@
 // pages/login/login.js
+
+// 引入网络请求函数
+import request from '../../utils/request'
+
 Page({
 
   /**
@@ -33,7 +37,7 @@ Page({
   },
 
   // 事件处理：登录按钮
-  login() {
+  async login() {
     // 1.获取表单项数据 
     let {
       phone,
@@ -65,9 +69,37 @@ Page({
       })
       return; // 后续不再执行
     }
-    wx.showToast({
-      title: '前端验证通过',
+    // wx.showToast({
+    //   title: '前端验证通过',
+    // })
+
+    // 后端验证
+    let result = await request('/login/cellphone', {
+      phone,
+      password
     })
+    console.log(result);
+    // 使用状态码判断登录结果 200 400 502 其他
+    if (result.code === 200) {
+      wx.showToast({
+        title: '登录成功',
+      })
+    } else if (result.code === 400) {
+      wx.showToast({
+        title: '手机号错误',
+        icon: 'none'
+      })
+    } else if (result.code === 502) {
+      wx.showToast({
+        title: '密码错误',
+        icon: 'none'
+      })
+    } else {
+      wx.showToast({
+        title: '登录失败，请重新登录',
+        icon: 'none'
+      })
+    }
   },
 
 
