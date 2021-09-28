@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    phone: '', // 手机号码
+    password: '', // 密码
   },
 
   /**
@@ -14,6 +15,23 @@ Page({
   onLoad: function (options) {
 
   },
+  // 事件处理：拿到表单数据 event.detail.value 
+  // 事件处理：拿到表单类型：event.currentTarget.id
+  handleInput(event) {
+    // console.log('表单数据：',event.detail.value);
+    // console.log('表单类型：',event.currentTarget.id);
+
+    // let type = event.currentTarget.id  // id传值，取值phone或者password
+    // console.log(type, event.detail.value);
+
+    let type = event.currentTarget.dataset.type // data-type传值
+
+    // 更新数据
+    this.setData({
+      [type]: event.detail.value
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
