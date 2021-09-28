@@ -32,6 +32,44 @@ Page({
     })
   },
 
+  // 事件处理：登录按钮
+  login() {
+    // 1.获取表单项数据 
+    let {
+      phone,
+      password
+    } = this.data // 解构赋值
+    // 2.手机号码验证: 为空，不为空
+    // 为空：提示
+    if (!phone) {
+      wx.showToast({
+        title: '手机号不能为空',
+        icon: 'none' // 不显示图标
+      })
+      return; // 后续不再执行
+    }
+    // 不为空：先定义正则表达式，再判断进行提示
+    let phoneReg = /^1(3|4|5|6|7|8|9)\d{9}$/
+    if (!phoneReg.test(phone)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none'
+      })
+      return; // 后续不再执行
+    }
+    // 3.密码验证 为空 不为空
+    if (!password) {
+      wx.showToast({
+        title: '密码为空',
+        icon: 'none'
+      })
+      return; // 后续不再执行
+    }
+    wx.showToast({
+      title: '前端验证通过',
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
