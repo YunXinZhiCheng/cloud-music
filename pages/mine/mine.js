@@ -12,14 +12,25 @@ Page({
    */
   data: {
     coverTransform: 'translateY(200rpx)', // 移动距离
-    coverTransition: '' // 过渡效果
+    coverTransition: '', // 过渡效果
+    userInfo: {}, // 用户信息
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 读取用户的基本信息 getStorageSync('key')
+    let userInfo = wx.getStorageSync('userInfo')
+    console.log('userInfo:', userInfo);
 
+    // 判断用户的基本信息
+    if (userInfo) {
+      // 更新用户信息的状态
+      this.setData({
+        userInfo: JSON.parse(userInfo) // 转换格式
+      })
+    }
   },
 
   // 3个事件处理: 事件对象event
@@ -65,6 +76,13 @@ Page({
     })
 
 
+  },
+
+  // 事件：跳转到登录页面 login
+  toLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
   },
 
 

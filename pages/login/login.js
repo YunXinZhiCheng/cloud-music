@@ -11,12 +11,14 @@ Page({
   data: {
     phone: '', // 手机号码
     password: '', // 密码
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
 
   },
   // 事件处理：拿到表单数据 event.detail.value 
@@ -78,12 +80,22 @@ Page({
       phone,
       password
     })
-    console.log(result);
+    // console.log(result); // 登录结果
+
     // 使用状态码判断登录结果 200 400 502 其他
     if (result.code === 200) {
       wx.showToast({
         title: '登录成功',
       })
+
+      // 登录成功后：将用户的信息存储到本地 setStorageSync('key',value)
+      wx.setStorageSync('userInfo', JSON.stringify(result.profile))
+
+      // 登录成功后：跳转到我的页面 mine
+      wx.reLaunch({
+        url: '/pages/mine/mine',
+      })
+
     } else if (result.code === 400) {
       wx.showToast({
         title: '手机号错误',

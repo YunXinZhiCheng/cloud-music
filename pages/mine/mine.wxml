@@ -6,10 +6,13 @@
     <image class="bg" src="/static/images/mine/bgImg2.jpg"></image>
     <view class="user-info-box" bindtap="toLogin">
       <view class="portrait-box">
-        <image class="portrait" src=''></image>
+        <!-- 用户头像：三元表达式，有就显示，没有就显示默认 -->
+        <image class="portrait" src='{{userInfo.avatarUrl?userInfo.avatarUrl:"/static/images/mine/missing-face.png"}}'>
+        </image>
       </view>
       <view class="info-box">
-        <text class="username">游客</text>
+        <!-- 用户昵称：三元表达式，有就显示，没有就显示默认 -->
+        <text class="username">{{userInfo.nickname?userInfo.nickname:"游客"}}</text>
       </view>
     </view>
 
