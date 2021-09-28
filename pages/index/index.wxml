@@ -61,68 +61,17 @@
     <!-- 内容区-使用轮播图 -->
     <swiper class="topListSwiper" circular previous-margin="50rpx" next-margin="50rpx">
       <!-- 子项 音乐标题+音乐列表 -->
-      <swiper-item>
+      <swiper-item wx:for="{{topList}}" wx:key="name">
         <view class="swiperItem">
-          <view class="title">云音乐热歌榜</view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">1</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">2</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">3</text>
-            <text class="musicName">音乐名称</text>
+          <view class="title">{{item.name}}</view>
+          <view class="musicItem" wx:for="{{item.tracks}}" wx:for-item="musicItem" wx:key="id">
+            <image src="{{musicItem.al.picUrl}}"></image>
+            <text class="count">{{index+1}}</text>
+            <text class="musicName">{{musicItem.name}}</text>
           </view>
         </view>
       </swiper-item>
-      <!-- 子项 音乐标题+音乐列表 -->
-      <swiper-item>
-        <view class="swiperItem">
-          <view class="title">云音乐热歌榜</view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">1</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">2</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">3</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-        </view>
-      </swiper-item>
-      <!-- 子项 音乐标题+音乐列表 -->
-      <swiper-item>
-        <view class="swiperItem">
-          <view class="title">云音乐热歌榜</view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">1</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">2</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-          <view class="musicItem">
-            <image src="/static/images/swiper.jpg"></image>
-            <text class="count">3</text>
-            <text class="musicName">音乐名称</text>
-          </view>
-        </view>
-      </swiper-item>
+
     </swiper>
 
   </view>

@@ -10,6 +10,7 @@ Page({
   data: {
     bannerList: [], // 轮播图数据
     recommendList: [], // 推荐歌单数据
+    topList: [], // 排行榜数据
   },
 
   /**
@@ -34,6 +35,29 @@ Page({
     this.setData({
       recommendList: recommendListData.result
     })
+
+    // 3.获取排行榜数据
+    let index = 0
+    let resultArray = []
+    while (index < 5) {
+      let topListData = await request('/top/list', {
+        idx: index++
+      })
+      // 数组截取个数,不修改原数组 slice
+      let topListItem = {
+        name: topListData.playlist.name,
+        tracks: topListData.playlist.tracks.slice(0, 3)
+      }
+
+      resultArray.push(topListItem)
+      // 更新状态数据，为提升用户体验，循环让5次请求依次发送
+      this.setData({
+        topList: resultArray
+      })
+
+    }
+    console.log(resultArray);
+
 
 
   },

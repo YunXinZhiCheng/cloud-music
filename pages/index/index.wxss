@@ -114,18 +114,20 @@
 }
 
 .topListSwiper {
-  height: 400rpx;
+  height: 420rpx;
 }
 
 .swiperItem {
   width: 96%;
-  background: #999;
+  background: #ededed;
 }
 
 /* 排行榜内容区 音乐标题 */
 .swiperItem .title {
   font-size: 30rpx;
   line-height: 80rpx;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* 排行榜内容区 音乐列表=图片+数量+名称 */
@@ -149,6 +151,11 @@
 }
 
 .musicItem .musicName {
+  max-width: 400rpx;
   height: 100rpx;
   line-height: 100rpx;
+  /* 单行文本处理 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
