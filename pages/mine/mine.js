@@ -1,11 +1,18 @@
 // pages/mine/mine.js
+
+// 定义几个变量: 手指起始的坐标+移动坐标+移动的距离
+let startY = 0
+let moveY = 0
+let moveDistance = 0
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    coverTransform: 'translateY(200rpx)', // 移动距离
+    coverTransition: '' // 过渡效果
   },
 
   /**
@@ -14,6 +21,52 @@ Page({
   onLoad: function (options) {
 
   },
+
+  // 3个事件处理: 事件对象event
+  handleTouchStart(event) {
+    // 更新过渡状态: 重置
+    this.setData({
+      coverTransition: ''
+    })
+
+    // console.log(event);
+    // console.log('开始Start');
+    startY = event.touches[0].clientY
+    // console.log('初始的坐标：', startY);
+
+
+  },
+  handleTouchMove(event) {
+    // console.log('移动Move');
+    moveY = event.touches[0].clientY
+    moveDistance = moveY - startY
+    // console.log('移动的距离：', moveDistance);
+
+    // 距离小于0 停止移动
+    if (moveDistance <= 0) {
+      return;
+    }
+    if (moveDistance >= 80) {
+      moveDistance = 80
+    }
+
+    // 动态更新coverTransform的状态值
+    this.setData({
+      coverTransform: `translateY(${moveDistance}rpx)`
+    })
+
+  },
+  handleTouchEnd() {
+    // console.log('结束End');
+    // 动态更新coverTransform的状态值
+    this.setData({
+      coverTransform: `translateY(0rpx)`,
+      coverTransition: 'transform 1s linear' // 平滑过渡
+    })
+
+
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
