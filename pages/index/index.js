@@ -56,7 +56,7 @@ Page({
       })
 
     }
-    console.log(resultArray);
+    // console.log(resultArray);
 
 
 

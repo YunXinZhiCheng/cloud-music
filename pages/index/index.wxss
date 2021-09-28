@@ -135,6 +135,7 @@
   /* flex特性：当一个元素设置为flex,子元素会自动成为block元素 */
   display: flex;
   margin-bottom: 20rpx;
+  padding: 0 20rpx;
 }
 
 .musicItem image {
