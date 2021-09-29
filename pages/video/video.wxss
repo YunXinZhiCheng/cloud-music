@@ -21,3 +21,23 @@
   line-height: 60rpx;
   color: #d43c33;
 }
+
+/* 导航区域 */
+.navScroll {
+  display: flex;
+  /* 不换行 */
+  white-space: nowrap;
+}
+
+/* 导航区域 子项 */
+.navScroll .navItem {
+  padding: 0 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+
+/* 导航区域 子项内容 激活 */
+.navScroll .navItem .active {
+  border-bottom: 2rpx solid #d43c33;
+}

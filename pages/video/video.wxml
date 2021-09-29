@@ -11,4 +11,57 @@
     <!-- 图片 -->
     <image src="/static/images/video/video-right.png"></image>
   </view>
+
+  <!-- 导航区域  横向滚动-->
+  <scroll-view class="navScroll" scroll-x enable-flex>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent active">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+    <!-- 子项 -->
+    <view class="navItem">
+      <!-- 内容 -->
+      <view class="navContent">
+        推荐
+      </view>
+    </view>
+  </scroll-view>
 </view>
