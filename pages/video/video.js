@@ -10,7 +10,8 @@ Page({
    */
   data: {
     videoGroupList: [], // 导航列表数据
-    navId: '', // 导航列表标识 用于控制样式
+    navId: '', // 导航列表标识 
+    videoList: [], // 视频列表数据
   },
 
   /**
@@ -29,7 +30,7 @@ Page({
 
     // 更新数据: 使用数组方法截取10多个即可
     this.setData({
-      videoGroupList: videoGroupListData.data.slice(0, 100),
+      videoGroupList: videoGroupListData.data.slice(0, 10),
       navId: videoGroupListData.data[0].id
     })
 
@@ -46,6 +47,12 @@ Page({
       id: navId
     })
     console.log(videoListData);
+
+    // 更新数据 视频列表
+    this.setData({
+      videoList: videoListData.datas
+    })
+
   },
 
   // 事件：点击切换导航的样式
