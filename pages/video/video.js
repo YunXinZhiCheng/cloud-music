@@ -1,19 +1,48 @@
 // pages/video/video.js
+
+// 引入网络请求函数
+import request from '../../utils/request'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    videoGroupList: [], // 导航列表数据
+    navId:'', // 导航列表标识 用于控制样式
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //  调用函数：获取导航列表数据
+    this.getVideoGroupListData()
   },
+
+  // 函数：获取导航列表数据
+  async getVideoGroupListData() {
+    let videoGroupListData = await request('/video/group/list')
+    // console.log(videoGroupListData);
+
+    // 更新数据: 使用数组方法截取10多个即可
+    this.setData({
+      videoGroupList: videoGroupListData.data.slice(0, 100)
+    })
+  },
+
+  // 事件：点击切换导航的样式
+  changeNav(event){
+    // console.log(event);
+    let navId = event.currentTarget.id
+
+    // 更新数据：导航navId
+    this.setData({
+      navId: navId
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

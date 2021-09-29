@@ -14,53 +14,14 @@
 
   <!-- 导航区域  横向滚动-->
   <scroll-view class="navScroll" scroll-x enable-flex>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent active">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
-      </view>
-    </view>
-    <!-- 子项 -->
-    <view class="navItem">
-      <!-- 内容 -->
-      <view class="navContent">
-        推荐
+    <!-- 子项  导航列表 -->
+    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+      <!-- 内容  标签
+           绑定事件：改变导航切换样式
+           三元运算：判断是否给导航激活样式
+       -->
+      <view class="navContent {{navId ==item.id?'active':''}}" bindtap="changeNav" id="{{item.id}}">
+        {{item.name}}
       </view>
     </view>
   </scroll-view>
