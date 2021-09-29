@@ -10,7 +10,7 @@ Page({
    */
   data: {
     videoGroupList: [], // 导航列表数据
-    navId:'', // 导航列表标识 用于控制样式
+    navId: '', // 导航列表标识 用于控制样式
   },
 
   /**
@@ -19,6 +19,7 @@ Page({
   onLoad: function (options) {
     //  调用函数：获取导航列表数据
     this.getVideoGroupListData()
+
   },
 
   // 函数：获取导航列表数据
@@ -28,12 +29,27 @@ Page({
 
     // 更新数据: 使用数组方法截取10多个即可
     this.setData({
-      videoGroupList: videoGroupListData.data.slice(0, 100)
+      videoGroupList: videoGroupListData.data.slice(0, 100),
+      navId: videoGroupListData.data[0].id
     })
+
+    // 调用函数：获取视频列表数据
+    this.getVideoList(this.data.navId)
+  },
+
+  // 函数：获取视频列表数据
+  async getVideoList(navId) {
+    if (!navId) {
+      return;
+    }
+    let videoListData = await request('/video/group', {
+      id: navId
+    })
+    console.log(videoListData);
   },
 
   // 事件：点击切换导航的样式
-  changeNav(event){
+  changeNav(event) {
     // console.log(event);
     let navId = event.currentTarget.id
 

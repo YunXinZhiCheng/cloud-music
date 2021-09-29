@@ -45,6 +45,7 @@ Page({
       phone,
       password
     } = this.data // 解构赋值
+
     // 2.手机号码验证: 为空，不为空
     // 为空：提示
     if (!phone) {
@@ -54,6 +55,7 @@ Page({
       })
       return; // 后续不再执行
     }
+
     // 不为空：先定义正则表达式，再判断进行提示
     let phoneReg = /^1(3|4|5|6|7|8|9)\d{9}$/
     if (!phoneReg.test(phone)) {
@@ -78,7 +80,8 @@ Page({
     // 后端验证
     let result = await request('/login/cellphone', {
       phone,
-      password
+      password,
+      isLogin: true
     })
     // console.log(result); // 登录结果
 
@@ -87,6 +90,7 @@ Page({
       wx.showToast({
         title: '登录成功',
       })
+      // console.log(result);
 
       // 登录成功后：将用户的信息存储到本地 setStorageSync('key',value)
       wx.setStorageSync('userInfo', JSON.stringify(result.profile))
