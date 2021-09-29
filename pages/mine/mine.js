@@ -5,6 +5,9 @@ let startY = 0
 let moveY = 0
 let moveDistance = 0
 
+// 引入网络请求函数
+import request from '../../utils/request'
+
 Page({
 
   /**
@@ -14,6 +17,7 @@ Page({
     coverTransform: 'translateY(200rpx)', // 移动距离
     coverTransition: '', // 过渡效果
     userInfo: {}, // 用户信息
+    recentPlayList: [], // 用户最近播放记录
   },
 
   /**
@@ -22,7 +26,7 @@ Page({
   onLoad: function (options) {
     // 读取用户的基本信息 getStorageSync('key')
     let userInfo = wx.getStorageSync('userInfo')
-    console.log('userInfo:', userInfo);
+    // console.log('userInfo:', userInfo);
 
     // 判断用户的基本信息
     if (userInfo) {
@@ -30,7 +34,25 @@ Page({
       this.setData({
         userInfo: JSON.parse(userInfo) // 转换格式
       })
+      // 获取用户最近播放记录
+      this.getUserRecentPlayList(this.data.userInfo.userId)
     }
+  },
+
+
+  // 事件处理: 用户最近播放记录
+  async getUserRecentPlayList(userId) {
+    let recentPlayListData = await request('/user/record', {
+      uid: userId,
+      type: 0
+    })
+    // console.log(recentPlayListData); // 最近播放记录
+
+    // 更新数据: 截取10条播放记录 splice(0,10)
+    this.setData({
+      recentPlayList: recentPlayListData.allData
+      // recentPlayList: recentPlayListData.allData.splice(0,10)
+    })
   },
 
   // 3个事件处理: 事件对象event

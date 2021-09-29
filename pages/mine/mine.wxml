@@ -61,15 +61,20 @@
     <view class="personalContent">
       <view class="recentPlayContainer">
         <text class="title">最近播放</text>
-        <!-- 最近播放记录 -->
-        <scroll-view wx:if="" scroll-x class="recentScroll" enable-flex>
-          <view class="recentItem">
-            <image src=""></image>
+        <!-- 最近播放记录 
+             有数据 数组长度不为0  wx:if 
+             横向滚动 scroll-x -->
+        <scroll-view scroll-x class="recentScroll" enable-flex wx:if="recentPlayList.length">
+          <view class="recentItem" wx:for="{{recentPlayList}}" wx:key="index">
+            <image src="{{item.song.al.picUrl}}"></image>
           </view>
         </scroll-view>
+        <!-- 最近播放记录：
+             无数据 数组长度为0 wx:else-->
         <view wx:else>暂无播放记录</view>
       </view>
 
+      <!-- 卡片列表 -->
       <view class="cardList">
         <view class="card-item">
           <text class="title">我的音乐</text>
