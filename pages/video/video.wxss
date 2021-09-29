@@ -1,1 +1,23 @@
 /* pages/video/video.wxss */
+/* 头部区域 */
+.videoContainer .header {
+  display: flex;
+  padding: 10rpx;
+}
+
+/* 头部区域 图片 */
+.videoContainer .header image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/* 头部区域 搜索 */
+.videoContainer .header .search {
+  border: 1rpx solid #eee;
+  flex: 1;
+  margin: 0 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #d43c33;
+}

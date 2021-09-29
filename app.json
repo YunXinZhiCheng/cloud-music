@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/mine/mine",
-    "pages/login/login",
+    "pages/video/video",
     "pages/index/index",
-    "pages/video/video"
+    "pages/mine/mine",
+    "pages/login/login"
+    
+    
     
    
   ],
@@ -26,8 +28,8 @@
       {
         "pagePath": "pages/video/video",
         "text": "视频",
-        "iconPath": "/static/images/tabBar/select.png",
-        "selectedIconPath": "/static/images/tabBar/selected.png"
+        "iconPath": "/static/images/tabBar/tab-video.png",
+        "selectedIconPath": "/static/images/tabBar/tab-video-current.png"
       },
       {
         "pagePath": "pages/mine/mine",

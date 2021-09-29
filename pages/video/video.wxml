@@ -1,2 +1,14 @@
 <!--pages/video/video.wxml-->
-<text>pages/video/video.wxml</text>
+<view class="videoContainer">
+  <!-- 头部区域 左+中+右 -->
+  <view class="header">
+    <!-- 图片 -->
+    <image src="/static/images/video/video-left.png"></image>
+    <!-- 搜索框 -->
+    <view class="search">
+      搜索
+    </view>
+    <!-- 图片 -->
+    <image src="/static/images/video/video-right.png"></image>
+  </view>
+</view>
