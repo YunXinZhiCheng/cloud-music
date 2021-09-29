@@ -13,9 +13,9 @@
   </view>
 
   <!-- 导航区域  横向滚动-->
-  <scroll-view class="navScroll" scroll-x enable-flex>
+  <scroll-view class="navScroll" scroll-x scroll-into-view="{{'scroll'+navId}}" scroll-with-animation enable-flex>
     <!-- 子项  导航列表 -->
-    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+    <view id="{{'scroll'+item.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
       <!-- 内容  标签
            绑定事件：改变导航切换样式
            三元运算：判断是否给导航激活样式
