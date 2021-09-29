@@ -46,7 +46,10 @@ Page({
     let videoListData = await request('/video/group', {
       id: navId
     })
-    console.log(videoListData);
+    // console.log(videoListData);
+
+    // 消息提示关闭：
+    wx.hideLoading()
 
     // 更新数据 视频列表
     this.setData({
@@ -62,9 +65,19 @@ Page({
 
     // 更新数据：导航navId
     this.setData({
-      navId: navId
+      navId: navId,
+      videoList: [] // 切换时视频列表重置为空数组
     })
+    // 消息提示：切换时显示正在加载
+    wx.showLoading({
+      title:'正在加载...'
+    })
+
+    // 调用函数：动态或当前导航对应的视频数据
+    this.getVideoList(this.data.navId)
   },
+
+  
 
 
   /**
