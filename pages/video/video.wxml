@@ -31,9 +31,15 @@
     <!-- 子项 列表项 -->
     <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
       <!-- 视频地址 -->
-      <video src="{{item.data.urlInfo.url}}" bindplay="handlePlay" id="{{item.data.vid}}"
-      poster="{{item.data.coverUrl}}" wx:if="{{videoId === item.data.vid}}"
-      autoplay="true"></video>
+      <video src="{{item.data.urlInfo.url}}"
+       bindplay="handlePlay" 
+       id="{{item.data.vid}}"
+      poster="{{item.data.coverUrl}}"
+       wx:if="{{videoId === item.data.vid}}"
+      autoplay="true"
+      object-fit="fill"
+      >
+      </video>
 
       <!-- 性能优化：使用image图片代替video标签 -->
       <image wx:else bindtap="handlePlay" id="{{item.data.vid}}" class="common" src="{{item.data.coverUrl}}" ></image>
