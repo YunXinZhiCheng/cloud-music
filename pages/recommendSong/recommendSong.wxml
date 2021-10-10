@@ -22,31 +22,19 @@
     <!-- 内容区 滚动列表 纵向滚动 -->
     <scroll-view scroll-y class="listScroll">
       <!-- 子项 -->
-      <view class="scrollItem">
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id">
         <!-- 音乐图片 -->
-        <image src="/static/images/swiper.jpg"></image>
+        <image src="{{item.album.picUrl}}"></image>
         <!-- 音乐信息 -->
         <view class="musicInfo">
           <!-- 音乐名称+歌手名称 -->
-          <text class="musicName">忘情水</text>
-          <text class="author">刘德华</text>
+          <text class="musicName">{{item.name}}</text>
+          <text class="author">{{item.artists[0].name}}</text>
         </view>
         <!-- 图标更多 -->
         <text class="iconfont icon-gengduo"></text>
       </view>
-      <!-- 子项 -->
-      <view class="scrollItem">
-        <!-- 音乐图片 -->
-        <image src="/static/images/swiper.jpg"></image>
-        <!-- 音乐信息 -->
-        <view class="musicInfo">
-          <!-- 音乐名称+歌手名称 -->
-          <text class="musicName">忘情水</text>
-          <text class="author">刘德华</text>
-        </view>
-        <!-- 图标更多 -->
-        <text class="iconfont icon-gengduo"></text>
-      </view>
+
     </scroll-view>
   </view>
 </view>
