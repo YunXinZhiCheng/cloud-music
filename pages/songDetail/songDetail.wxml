@@ -14,4 +14,15 @@
     <!-- 音乐图 -->
     <image class="musicImg" src="/static/images/swiper.jpg"></image>
   </view>
+
+  <!-- 底部控制播放区域 -->
+  <view class="musicControl">
+    <!-- 相关图标5个  随机、上一首+播放+下一首+列表-->
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+    <text class="iconfont icon-shangyishou"></text>
+    <!-- 播放：点击事件，控制播放状态 -->
+    <text class="iconfont {{isPlay?'icon-zanting':'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+    <text class="iconfont icon-next"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+  </view>
 </view>

@@ -14,7 +14,14 @@ Page({
   onLoad: function (options) {
 
   },
-
+  // 事件：点击播放或暂停的回调
+  handleMusicPlay() {
+    let isPlay = !this.data.isPlay
+    // 更新播放状态
+    this.setData({
+      isPlay
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
