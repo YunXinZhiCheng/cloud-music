@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/songDetail/songDetail",
     "pages/recommendSong/recommendSong",
     "pages/index/index",
     "pages/video/video",

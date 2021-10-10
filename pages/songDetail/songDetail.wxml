@@ -1,0 +1,17 @@
+<!--pages/songDetail/songDetail.wxml-->
+<!-- 歌曲详情页 -->
+<view class="songDetailContainer">
+  <!-- 歌手名 -->
+  <view class="author">刘德华</view>
+  <!-- 圆形底座 -->
+  <view class="circle"></view>
+  <!-- 播放器摇杆 -->
+  <image class="needle" src="/static/images/song/needle.png" ></image>
+  <!-- 播放器磁盘 -->
+  <view class="discContainer">
+    <!-- 磁盘图 -->
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <!-- 音乐图 -->
+    <image class="musicImg" src="/static/images/swiper.jpg"></image>
+  </view>
+</view>

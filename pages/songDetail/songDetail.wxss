@@ -1,0 +1,61 @@
+/* pages/songDetail/songDetail.wxss */
+/* 歌曲详情页样式 */
+.songDetailContainer {
+  height: 100vh;
+  /* 背景黑色半透明 */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 圆形底座 */
+.circle {
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #fff;
+  margin: 10rpx 0;
+  z-index: 100;
+}
+
+/* 播放器摇杆 */
+.needle {
+  position: relative;
+  top: -40rpx;
+  left: 60rpx;
+  width: 192rpx;
+  height: 274rpx;
+  /* border: 1rpx solid red; */
+  z-index: 99;
+
+}
+
+/* 播放器磁盘 */
+.discContainer {
+  position: relative;
+  top: -170rpx;
+  width: 598rpx;
+  height: 598rpx;
+  /* border: 1rpx solid red; */
+}
+
+/* 音乐磁盘图片 */
+.disc {
+  width: 598rpx;
+  height: 598rpx;
+}
+
+/* 音乐图片 */
+.musicImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
