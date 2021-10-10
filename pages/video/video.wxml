@@ -31,7 +31,7 @@
     <!-- 子项 列表项 -->
     <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
       <!-- 视频地址 -->
-      <video src="{{item.data.urlInfo.url}}"></video>
+      <video src="{{item.data.urlInfo.url}}" bindplay="handlePlay" id="{{item.data.vid}}"></video>
       <!-- 视频内容 -->
       <view class="content">{{item.data.title}}</view>
       <!-- 视频底部 相关用户信息 -->
