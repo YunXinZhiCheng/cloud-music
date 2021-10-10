@@ -29,7 +29,15 @@
   height: 274rpx;
   /* border: 1rpx solid red; */
   z-index: 99;
+  /* 摇杆动画 抬起 旋转 中心点 过渡效果*/
+  transform-origin: 40rpx 0;
+  transform: rotate(-20deg);
+  transition: transform 1s;
+}
 
+/* 摇杆动画还原 落下 */
+.needleRotate {
+  transform: rotate(0deg);
 }
 
 /* 播放器磁盘 */
@@ -39,6 +47,25 @@
   width: 598rpx;
   height: 598rpx;
   /* border: 1rpx solid red; */
+}
+
+/* 定义磁盘动画 */
+.discAnimation {
+  animation: disc 4s linear infinite;
+  /* 动画延迟1s */
+  animation-delay: 1s;
+
+
+}
+
+@keyframes disc {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* 音乐磁盘图片 */
