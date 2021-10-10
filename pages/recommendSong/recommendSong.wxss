@@ -1,0 +1,37 @@
+/* pages/recommendSong/recommendSong.wxss */
+
+/* 头部区域 */
+.recommendSongContainer .header {
+  width: 100%;
+  height: 300rpx;
+  /* 相对定位 */
+  position: relative;
+}
+
+/* 头部区域 图片 */
+.recommendSongContainer .header image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 头部区域 日期 */
+.recommendSongContainer .header .date {
+  /* 定位 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150rpx;
+  margin-top: -50rpx;
+
+  width: 300rpx;
+  height: 100rpx;
+  /* border: 1rpx solid red; */
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+}
+
+/* 日期 天数 */
+.header .date .day {
+  font-size: 38rpx;
+}

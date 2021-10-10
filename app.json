@@ -1,13 +1,11 @@
 {
   "pages": [
-    "pages/video/video",
+    "pages/recommendSong/recommendSong",
     "pages/index/index",
+    "pages/video/video",
     "pages/mine/mine",
     "pages/login/login"
     
-    
-    
-   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +17,8 @@
     "color": "#333",
     "selectedColor": "#d43c33",
     "backgroundColor": "#fff",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "/static/images/tabBar/tab-home.png",
