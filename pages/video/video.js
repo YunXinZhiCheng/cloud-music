@@ -12,6 +12,8 @@ Page({
     navId: '', // 导航列表标识
     videoList: [], // 视频列表数据
     videoId: '', // 视频id标识
+    videoUpdateTime: [], // 记录视频播放时长
+    isTriggered: false, // 下拉刷新是否被触发标识
   },
 
   /**
@@ -53,6 +55,7 @@ Page({
     // 更新数据 视频列表
     this.setData({
       videoList: videoListData.datas,
+      isTriggered:false // 下拉刷新提示关闭
     })
   },
 
@@ -90,6 +93,71 @@ Page({
     // 创建控制video标签的实例对象
     this.videoContext = wx.createVideoContext(vid)
     // this.videoContext.play() // 播放
+
+    // 判断当前的视频之前是否播放过，是否有播放记录，如果有就跳转到指定的播放位置
+    let { videoUpdateTime } = this.data
+    let videoItem = videoUpdateTime.find((item) => item.vid === vid)
+    if (videoItem) {
+      this.videoContext.seek(videoItem.currentTime)
+    }
+  },
+
+  // 事件：监听视频播放进度的回调
+  handleTimeUpdate(event) {
+    // console.log(event)
+    // 视频时间对象：id与当前时间
+    let videoTimeObj = {
+      vid: event.currentTarget.id,
+      currentTime: event.detail.currentTime,
+    }
+    //
+    let { videoUpdateTime } = this.data
+    //
+    let videoItem = videoUpdateTime.find(
+      (item) => item.vid === videoTimeObj.vid
+    )
+    if (videoItem) {
+      //
+      videoItem.currentTime = event.detail.currentTime
+    } else {
+      //
+      videoUpdateTime.push(videoTimeObj)
+    }
+    // 更新数据
+    this.setData({
+      videoUpdateTime,
+    })
+  },
+
+  // 事件：视频播放结束时调用的回调
+  handleEnded(event) {
+    // console.log('播放结束')
+
+    // 移除记录播放时长数组中当前视频的对象 splice()
+    let { videoUpdateTime } = this.data
+    let index = videoUpdateTime.findIndex(
+      (item) => item.vid === event.currentTarget.id
+    )
+    videoUpdateTime.splice(index, 1)
+
+    // 更新数据
+    this.setData({
+      videoUpdateTime,
+    })
+  },
+
+  // 事件：自定义下拉刷新的回调
+  handleRefresher() {
+    // console.log('scroll-view 下拉刷新');
+    // 再次发起请求，获取最新视频的数据
+    this.getVideoList(this.data.navId)
+  },
+
+
+  // 事件：自定义上拉触底的回调
+  handleToLower(){
+    // console.log('scroll-view 上拉触底');
+    // 加载更多数据：1.后端分页 2.前端分页
   },
 
   /**

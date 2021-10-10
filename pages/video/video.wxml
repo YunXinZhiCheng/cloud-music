@@ -9,7 +9,7 @@
       搜索
     </view>
     <!-- 图片 -->
-    <image src="/static/images/video/video-right.png"></image>
+    <!-- <image src="/static/images/video/video-right.png"></image> -->
   </view>
 
   <!-- 导航区域  横向滚动-->
@@ -26,8 +26,13 @@
     </view>
   </scroll-view>
 
-  <!-- 视频列表区域 纵向滚动-->
-  <scroll-view class="videoScroll" scroll-y>
+  <!-- 视频列表区域 纵向滚动 开启下拉刷新-->
+  <scroll-view class="videoScroll" 
+  scroll-y refresher-enabled="true" 
+  bindrefresherrefresh="handleRefresher"
+  refresher-triggered="{{isTriggered}}"
+  bindscrolltolower="handleToLower"
+  >
     <!-- 子项 列表项 -->
     <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
       <!-- 视频地址 -->
@@ -38,6 +43,8 @@
        wx:if="{{videoId === item.data.vid}}"
       autoplay="true"
       object-fit="fill"
+      bindtimeupdate="handleTimeUpdate"
+      bindended="handleEnded"
       >
       </video>
 
