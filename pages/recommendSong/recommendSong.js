@@ -5,14 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    day: '', // 天数
+    month: '', // 月份
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 更新日期的状态数据
+    this.setData({
+      day: new Date().getDate(),
+      month: new Date().getMonth() + 1
+    })
   },
 
   /**

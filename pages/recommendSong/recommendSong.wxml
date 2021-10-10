@@ -7,8 +7,8 @@
     <image src="/static/images/recommendSong/recommendSong.jpg"></image>
     <!-- 日期：日+月 -->
     <view class="date">
-      <text class="day">18/</text>
-      <text class="month">10</text>
+      <text class="month">{{month}}月</text>
+      <text class="day">{{day}}号</text>
     </view>
   </view>
 </view>
