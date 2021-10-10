@@ -11,4 +11,42 @@
       <text class="day">{{day}}号</text>
     </view>
   </view>
+
+  <!-- 歌曲列表区域 -->
+  <view class="ListContainer">
+    <!-- 顶部区:左+右 -->
+    <view class="listHeader">
+      <text>播放全部</text>
+      <text class="changeMore">多选</text>
+    </view>
+    <!-- 内容区 滚动列表 纵向滚动 -->
+    <scroll-view scroll-y class="listScroll">
+      <!-- 子项 -->
+      <view class="scrollItem">
+        <!-- 音乐图片 -->
+        <image src="/static/images/swiper.jpg"></image>
+        <!-- 音乐信息 -->
+        <view class="musicInfo">
+          <!-- 音乐名称+歌手名称 -->
+          <text class="musicName">忘情水</text>
+          <text class="author">刘德华</text>
+        </view>
+        <!-- 图标更多 -->
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+      <!-- 子项 -->
+      <view class="scrollItem">
+        <!-- 音乐图片 -->
+        <image src="/static/images/swiper.jpg"></image>
+        <!-- 音乐信息 -->
+        <view class="musicInfo">
+          <!-- 音乐名称+歌手名称 -->
+          <text class="musicName">忘情水</text>
+          <text class="author">刘德华</text>
+        </view>
+        <!-- 图标更多 -->
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </scroll-view>
+  </view>
 </view>
