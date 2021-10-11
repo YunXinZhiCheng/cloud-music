@@ -22,7 +22,7 @@
     <!-- 内容区 滚动列表 纵向滚动 -->
     <scroll-view scroll-y class="listScroll">
       <!-- 子项 -->
-      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id">
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id" data-song="{{item}}" bindtap="toSongDetail">
         <!-- 音乐图片 -->
         <image src="{{item.album.picUrl}}"></image>
         <!-- 音乐信息 -->

@@ -52,6 +52,17 @@ Page({
     })
   },
 
+  //  事件：跳转到歌曲详情页
+  toSongDetail(event) {
+    let song = event.currentTarget.dataset.song;
+
+    // 路由跳转传递：query参数
+    wx.navigateTo({
+      // 不能直接将song对象作为参数传递
+      // url: '/pages/songDetail/songDetail?song=' + JSON.stringify(song),
+      url: '/pages/songDetail/songDetail?musicId='+song.id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
