@@ -1,4 +1,8 @@
 // pages/songDetail/songDetail.js
+
+// 引入网络请求函数
+import request from '../../utils/request'
+
 Page({
 
   /**
@@ -6,6 +10,7 @@ Page({
    */
   data: {
     isPlay: false, // 音乐是否播放
+    song: {}, // 歌曲详情对象
   },
 
   /**
@@ -16,6 +21,25 @@ Page({
     let musicId = options.musicId
     // console.log(options);
     // console.log('音乐的ID：'+musicId);
+
+    // 获取音乐详情的功能函数
+    this.getMusicInfo(musicId)
+  },
+
+  // 获取音乐详情的功能函数
+  async getMusicInfo(musicId) {
+    let songData = await request('/song/detail', {
+      ids: musicId
+    })
+    // console.log(songData);
+    // 更新数据状态
+    this.setData({
+      song: songData.songs[0]
+    })
+    // 动态修改窗口标题
+    wx.setNavigationBarTitle({
+      title: this.data.song.name,
+    })
   },
   // 事件：点击播放或暂停的回调
   handleMusicPlay() {
@@ -25,6 +49,10 @@ Page({
       isPlay
     })
   },
+
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
