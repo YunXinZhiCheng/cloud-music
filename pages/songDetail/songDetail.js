@@ -11,6 +11,7 @@ Page({
   data: {
     isPlay: false, // 音乐是否播放
     song: {}, // 歌曲详情对象
+    musicId: '', // 歌曲音乐id
   },
 
   /**
@@ -24,6 +25,11 @@ Page({
 
     // 获取音乐详情的功能函数
     this.getMusicInfo(musicId)
+
+    // 更新数据
+    this.setData({
+      musicId
+    })
   },
 
   // 获取音乐详情的功能函数
@@ -48,6 +54,31 @@ Page({
     this.setData({
       isPlay
     })
+    // 调用控制音乐播放或暂停的功能函数
+    let {
+      musicId
+    } = this.data
+    this.musicControl(isPlay, musicId)
+  },
+
+  // 控制音乐播放或暂停的功能函数
+  async musicControl(isPlay,musicId) {
+    // 创建音乐播放实例
+    let backgroundAudioManager = wx.getBackgroundAudioManager()
+
+    // 判断
+    if (isPlay) { // 音乐播放
+      // 获取音乐播放链接
+      let musicLinkData = await request('/song/url', {
+        id: musicId
+      })
+      let musicLink = musicLinkData.data[0].url
+
+      backgroundAudioManager.src = musicLink
+      backgroundAudioManager.title=this.data.song.name
+    } else { // 音乐暂停
+      backgroundAudioManager.pause()
+    }
   },
 
 

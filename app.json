@@ -6,7 +6,7 @@
     "pages/video/video",
     "pages/mine/mine",
     "pages/login/login"
-    
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,8 +18,7 @@
     "color": "#333",
     "selectedColor": "#d43c33",
     "backgroundColor": "#fff",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "/static/images/tabBar/tab-home.png",
@@ -39,6 +38,7 @@
       }
     ]
   },
+  "requiredBackgroundModes": ["audio", "location"],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
